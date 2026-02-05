@@ -1,0 +1,45 @@
+<header id="top">
+  <nav>
+    <div>
+      <strong>{{ .Site.Params.siteName }}</strong>
+      <span>{{ .Site.Params.siteTagline }}</span>
+    </div>
+
+    <ul>
+      {{ range $label := .Site.Params.home.nav }}
+        <li><a href="#{{ anchorize $label }}">{{ $label }}</a></li>
+      {{ end }}
+    </ul>
+
+    <div>
+      <a href="#join-updates">Join updates</a>
+      <a href="#volunteer">Volunteer</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <img
+      src="{{ .Site.Params.home.heroImage.src }}"
+      alt="{{ .Site.Params.home.heroImage.alt }}"
+      loading="eager"
+    >
+
+    {{ if .Site.Params.home.heroImage.overlay }}
+      <div class="hero-overlay">
+        <h1>{{ .Site.Params.home.heroImage.overlayText }}</h1>
+
+        <div class="hero-actions">
+          {{ range .Site.Params.home.heroButtons }}
+            <a href="{{ .href }}">{{ .label }}</a>
+          {{ end }}
+        </div>
+
+        <p class="hero-badges">
+          {{ range .Site.Params.home.heroBadges }}
+            <span>{{ . }}</span>
+          {{ end }}
+        </p>
+      </div>
+    {{ end }}
+  </section>
+</header>

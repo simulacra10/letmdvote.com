@@ -1,0 +1,11 @@
+<section id="{{ anchorize .Site.Params.home.aboutTitle }}">
+  <h2>{{ .Site.Params.home.aboutTitle }}</h2>
+  <p>{{ .Site.Params.home.aboutP1 }}</p>
+  <p>{{ .Site.Params.home.aboutP2 }}</p>
+
+  <ul>
+    {{ range .Site.Params.home.aboutPills }}
+      <li>{{ . }}</li>
+    {{ end }}
+  </ul>
+</section>

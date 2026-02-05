@@ -1,0 +1,13 @@
+<section id="how-it-works">
+  <h2>{{ .Site.Params.home.howTitle }}</h2>
+  <p>{{ .Site.Params.home.howIntro }}</p>
+
+  {{ range .Site.Params.home.howBlocks }}
+    <div>
+      <h3>{{ .title }}</h3>
+      {{ range (split .text "\n\n") }}
+        <p>{{ . }}</p>
+      {{ end }}
+    </div>
+  {{ end }}
+</section>

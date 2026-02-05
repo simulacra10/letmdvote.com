@@ -1,0 +1,10 @@
+<section id="faq">
+  <h2>{{ .Site.Params.home.faqTitle }}</h2>
+
+  {{ range .Site.Params.home.faq }}
+    <details>
+      <summary>{{ .q }}</summary>
+      <p>{{ .a }}</p>
+    </details>
+  {{ end }}
+</section>

@@ -1,0 +1,138 @@
+baseURL = "https://letmdvote.com/"
+languageCode = "en-us"
+title = "Let MD Vote"
+theme = "lmdv"
+[params]
+  siteName = "Let MD Vote"
+  siteTagline = "Consent of the Governed Maryland"
+  contactEmail = "info@letmdvote.com"
+  footerCopyright = "© Let MD Vote"
+
+  [params.home]
+    # Navbar
+    nav = ["About", "Our case", "How it works", "Get involved", "FAQ"]
+
+    # Hero
+    [params.home.heroImage]
+    src = "/images/hero.jpg"
+    alt = "Maryland State House dome at sunset"
+    overlay = true
+     overlayText = "Let Marylanders propose and vote on questions that matter."
+
+    #eyebrow = "Building a lawful path for Maryland citizens to place measures on the ballot"
+    #headline = "Let Marylanders propose and vote on questions that matter."
+    #lead = "Let MD Vote is a Maryland civic initiative focused on expanding citizen access to the ballot through a structured, signature-based process that complements representative government."
+    #heroBadges = ["Nonpartisan.", "Pro-process.", "Pro-voter."]
+
+    
+
+    [[params.home.heroButtons]]
+      label = "Get involved"
+      href = "#get-involved"
+      style = "primary"
+
+    [[params.home.heroButtons]]
+      label = "See the process"
+      href = "#how-it-works"
+      style = "secondary"
+
+    [[params.home.heroButtons]]
+      label = "Read the FAQ"
+      href = "#faq"
+      style = "secondary"
+
+    # Feature trio
+    #[[params.home.highlights]]
+    #  title = "Simple idea"
+    #  text = "Marylanders should have a clear, lawful way to bring certain proposals to a statewide vote."
+
+    #[[params.home.highlights]]
+    #  title = "Orderly rules"
+      text = "A structured signature process with clear timelines and verification."
+
+    [[params.home.highlights]]
+      title = "Still a republic"
+      text = "This complements the legislature. It does not replace it."
+
+    # About
+    aboutTitle = "About"
+    aboutP1 = "Maryland’s laws and constitution set many important rules for public life, but citizens have limited ability to place statutory or constitutional questions directly before voters through a citizen-initiated ballot process."
+    aboutP2 = "Let MD Vote advocates for a statewide mechanism that allows citizens to propose eligible measures for voter consideration, through a clear, orderly procedure with strong safeguards and transparent administration."
+    aboutPills = ["Civic participation", "Accountability", "Transparency", "Peaceful, lawful change"]
+
+    # Our case
+    caseTitle = "Our case in a nutshell"
+    caseIntro = "Citizen ballot access is a practical tool used in many states to increase engagement and accountability. It creates a lawful avenue for voters to raise issues of broad public concern when traditional pathways stall."
+
+    [[params.home.casePoints]]
+      title = "More public participation"
+      text = "Invites citizens into the process with a clear, rule-bound method to propose measures."
+
+    [[params.home.casePoints]]
+      title = "More accountability"
+      text = "Encourages responsiveness by ensuring voters have a procedural option when issues are widely supported."
+
+    [[params.home.casePoints]]
+      title = "More trust"
+      text = "When people can lawfully act, political pressure stays peaceful, transparent, and focused."
+
+    # How it works
+    howTitle = "How a citizen initiative process works"
+    howIntro = "States that allow ballot initiatives typically use a straightforward framework. Specific rules vary, but the structure is consistent."
+
+    [[params.home.howBlocks]]
+      title = "A structured signature process"
+      text = "A proposal is drafted, reviewed for eligibility under defined rules, then supporters gather a required number of valid signatures within a set timeframe.\n\nElection authorities verify signatures, and if thresholds are met, the measure appears on the ballot for voters to approve or reject."
+
+    [[params.home.howBlocks]]
+      title = "Safeguards matter"
+      text = "A good system includes clear eligibility rules, transparent counting, fraud prevention, and straightforward public summaries so voters can make informed decisions.\n\nThis site is a public overview, not legal advice. Any specific proposal should be reviewed with qualified counsel."
+
+    # Get involved
+    involvedTitle = "Get involved"
+    involvedIntro = "If you support expanding citizen access to the ballot in Maryland, you can help in practical ways."
+
+    joinTitle = "Join updates"
+    joinText = "Stay informed as local resolutions, outreach, and education efforts develop."
+    joinPrivacyNote = "We do not sell your information. Unsubscribe anytime."
+    # If you later add a form provider, put its action URL here
+    joinFormAction = ""
+
+    volunteerTitle = "Volunteer"
+    volunteerText = "Help with outreach, talking points, local government engagement, event support, or administrative tasks."
+    volunteerPrimaryLabel = "Email us"
+    volunteerPrimaryHref = "mailto:info@letmdvote.com"
+    volunteerSecondaryLabel = "Questions first"
+    volunteerSecondaryHref = "mailto:info@letmdvote.com?subject=Let%20MD%20Vote%20Questions"
+
+    govTitle = "Local governments"
+    govText = "If you serve on a county or municipal council and want to support expanded citizen ballot access, we can provide a non-binding resolution template and a short briefing packet for consideration."
+    govCtaLabel = "Request materials"
+    govCtaHref = "mailto:info@letmdvote.com?subject=Request%20materials"
+
+    # FAQ
+    faqTitle = "FAQ"
+
+    [[params.home.faq]]
+      q = "Is this partisan?"
+      a = "No. This is a procedural effort focused on whether Maryland citizens should have a structured way to place eligible measures on the ballot. People of many political views support citizen ballot access."
+
+    [[params.home.faq]]
+      q = "Does this replace the legislature?"
+      a = "No. A citizen initiative process is a supplemental tool. Representative government continues as normal. Initiatives provide an additional lawful pathway for certain questions to reach voters."
+
+    [[params.home.faq]]
+      q = "What kinds of measures could be proposed?"
+      a = "That depends on the rules adopted by Maryland. Most states define eligibility and limits, especially for budgetary matters and administrative details. The goal is a clear process with sensible safeguards."
+
+    [[params.home.faq]]
+      q = "What is the ask right now?"
+      a = "Support local and statewide discussion around adopting a citizen initiative framework for Maryland, and help build community awareness through respectful outreach."
+
+    [[params.home.faq]]
+      q = "How can I help if I have limited time?"
+      a = "Join updates, share the site, and encourage local leaders to consider non-binding resolutions in support of ballot access."
+
+    # Principle
+    principleTitle = "A simple principle"
+    principleText = "Governments derive their just powers from the consent of the governed. Maryland deserves a clear, lawful, and orderly way for citizens to bring eligible questions to the ballot."

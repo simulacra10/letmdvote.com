@@ -1,0 +1,41 @@
+<section id="get-involved">
+  <h2>{{ .Site.Params.home.involvedTitle }}</h2>
+  <p>{{ .Site.Params.home.involvedIntro }}</p>
+
+  <div id="join-updates">
+    <h3>{{ .Site.Params.home.joinTitle }}</h3>
+    <p>{{ .Site.Params.home.joinText }}</p>
+
+    {{ $action := .Site.Params.home.joinFormAction }}
+    {{ if $action }}
+      <form action="{{ $action }}" method="post">
+        <label>
+          Email address
+          <input type="email" name="email" required>
+        </label>
+        <button type="submit">Sign up</button>
+      </form>
+    {{ else }}
+      <p><em>Signup form not configured yet.</em></p>
+    {{ end }}
+
+    <p>{{ .Site.Params.home.joinPrivacyNote }}</p>
+  </div>
+
+  <div id="volunteer">
+    <h3>{{ .Site.Params.home.volunteerTitle }}</h3>
+    <p>{{ .Site.Params.home.volunteerText }}</p>
+    <p>Email: <a href="mailto:{{ .Site.Params.contactEmail }}">{{ .Site.Params.contactEmail }}</a></p>
+
+    <p>
+      <a href="{{ .Site.Params.home.volunteerPrimaryHref }}">{{ .Site.Params.home.volunteerPrimaryLabel }}</a>
+      <a href="{{ .Site.Params.home.volunteerSecondaryHref }}">{{ .Site.Params.home.volunteerSecondaryLabel }}</a>
+    </p>
+  </div>
+
+  <div id="local-governments">
+    <h3>{{ .Site.Params.home.govTitle }}</h3>
+    <p>{{ .Site.Params.home.govText }}</p>
+    <p><a href="{{ .Site.Params.home.govCtaHref }}">{{ .Site.Params.home.govCtaLabel }}</a></p>
+  </div>
+</section>
