@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Let MD Vote is a Maryland civic initiative focused on expanding citizen access to the ballot through lawful, democratic processes." />
+  <title>Let MD Vote | Consent of the Governed Maryland</title>
+
+  <meta property="og:title" content="Let MD Vote | Consent of the Governed Maryland" />
+  <meta property="og:description" content="Expand citizen access to the ballot in Maryland through a lawful, structured initiative process." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://letmdvote.com/" />
+
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.09);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --soft: rgba(255,255,255,0.14);
+      --brand: #e95420;
+      --brand2: #772953;
+      --ok: #22c55e;
+
+      --max: 1100px;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+      --h1: clamp(2.05rem, 4vw, 3rem);
+      --h2: clamp(1.35rem, 2.2vw, 1.75rem);
+      --h3: 1.05rem;
+      --p: 1rem;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(233,84,32,0.20), transparent 55%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(119,41,83,0.22), transparent 60%),
+                  linear-gradient(180deg, #070a14, var(--bg));
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a.underline{ text-decoration: underline; text-underline-offset: 3px; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .topbar{
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,20,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 14px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      min-width: 180px;
+    }
+    .mark{
+      width: 34px; height: 34px; border-radius: 10px;
+      background: linear-gradient(135deg, rgba(233,84,32,0.95), rgba(119,41,83,0.95));
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    }
+    .brand-title{
+      display:flex; flex-direction:column; line-height:1.1;
+    }
+    .brand-title strong{ font-size: 0.98rem; letter-spacing: 0.2px; }
+    .brand-title span{ font-size: 0.82rem; color: var(--muted); }
+
+    nav{
+      display:flex; align-items:center; gap: 16px;
+    }
+    nav a{
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    nav a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .cta-row{ display:flex; gap: 10px; align-items:center; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+      white-space: nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.20);
+    }
+    .btn.primary{
+      border-color: rgba(233,84,32,0.55);
+      background: linear-gradient(135deg, rgba(233,84,32,0.95), rgba(233,84,32,0.72));
+    }
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(233,84,32,1), rgba(233,84,32,0.78));
+    }
+
+    .hero{
+      padding: 54px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 0 6px rgba(34,197,94,0.10);
+    }
+    h1{
+      margin: 14px 0 12px;
+      font-size: var(--h1);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+    .lead{
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+    .hero-actions{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items:center;
+    }
+
+    .panel{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+    }
+    .panel.pad{ padding: 18px; }
+
+    .stats{
+      display:grid;
+      gap: 10px;
+    }
+    .stat{
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .stat strong{ display:block; font-size: 0.98rem; }
+    .stat span{ display:block; color: var(--muted); font-size: 0.92rem; margin-top: 4px; }
+
+    .section{
+      padding: 34px 0;
+    }
+    .section h2{
+      margin: 0 0 12px;
+      font-size: var(--h2);
+      letter-spacing: -0.01em;
+    }
+    .section p{ margin: 0 0 12px; color: var(--muted); font-size: var(--p); }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .card{
+      border-radius: var(--radius);
+      padding: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .card h3{
+      margin: 0 0 8px;
+      font-size: var(--h3);
+      letter-spacing: -0.01em;
+    }
+    .card p{ margin: 0; color: var(--muted); }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+      margin-top: 14px;
+    }
+
+    details{
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 12px 14px;
+    }
+    details + details{ margin-top: 10px; }
+    summary{
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text);
+      list-style: none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{ margin: 10px 0 0; }
+
+    footer{
+      padding: 30px 0 44px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: start;
+    }
+    .tiny{ font-size: 0.92rem; color: var(--muted); }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .cards{ grid-template-columns: 1fr; }
+      .two-col{ grid-template-columns: 1fr; }
+      nav{ display:none; }
+      .brand{ min-width: 0; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .btn{ transition:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <a class="brand" href="#top" aria-label="Let MD Vote home">
+          <div class="mark" aria-hidden="true"></div>
+          <div class="brand-title">
+            <strong>Let MD Vote</strong>
+            <span>Consent of the Governed Maryland</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#why">Our case</a>
+          <a href="#how">How it works</a>
+          <a href="#help">Get involved</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="cta-row">
+          <a class="btn" href="#help">Join updates</a>
+          <a class="btn primary" href="#help">Volunteer</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker">
+              <span class="dot" aria-hidden="true"></span>
+              <span>Building a lawful path for Maryland citizens to place measures on the ballot</span>
+            </div>
+
+            <h1>Let Marylanders propose and vote on questions that matter.</h1>
+
+            <p class="lead">
+              Let MD Vote is a Maryland civic initiative focused on expanding citizen access to the ballot through
+              a structured, signature-based process that complements representative government.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#help">Get involved</a>
+              <a class="btn" href="#how">See the process</a>
+              <a class="btn" href="#faq">Read the FAQ</a>
+            </div>
+
+            <p class="tiny" style="margin-top:12px;">
+              Nonpartisan. Pro-process. Pro-voter.
+            </p>
+          </div>
+
+          <aside class="panel pad" aria-label="Quick highlights">
+            <div class="stats">
+              <div class="stat">
+                <strong>Simple idea</strong>
+                <span>Marylanders should have a clear, lawful way to bring certain proposals to a statewide vote.</span>
+              </div>
+              <div class="stat">
+                <strong>Orderly rules</strong>
+                <span>A structured signature process with clear timelines and verification.</span>
+              </div>
+              <div class="stat">
+                <strong>Still a republic</strong>
+                <span>This complements the legislature. It does not replace it.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2>About</h2>
+        <div class="panel pad">
+          <p>
+            Maryland’s laws and constitution set many important rules for public life, but citizens have limited ability
+            to place statutory or constitutional questions directly before voters through a citizen-initiated ballot process.
+          </p>
+          <p>
+            Let MD Vote advocates for a statewide mechanism that allows citizens to propose eligible measures for voter consideration,
+            through a clear, orderly procedure with strong safeguards and transparent administration.
+          </p>
+          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:10px;">
+            <span class="pill">Civic participation</span>
+            <span class="pill">Accountability</span>
+            <span class="pill">Transparency</span>
+            <span class="pill">Peaceful, lawful change</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="wrap">
+        <h2>Our case in a nutshell</h2>
+        <p>
+          Citizen ballot access is a practical tool used in many states to increase engagement and accountability.
+          It creates a lawful avenue for voters to raise issues of broad public concern when traditional pathways stall.
+        </p>
+
+        <div class="cards" role="list">
+          <div class="card" role="listitem">
+            <h3>More public participation</h3>
+            <p>Invites citizens into the process with a clear, rule-bound method to propose measures.</p>
+          </div>
+          <div class="card" role="listitem">
+            <h3>More accountability</h3>
+            <p>Encourages responsiveness by ensuring voters have a procedural option when issues are widely supported.</p>
+          </div>
+          <div class="card" role="listitem">
+            <h3>More trust</h3>
+            <p>When people can lawfully act, political pressure stays peaceful, transparent, and focused.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="wrap">
+        <h2>How a citizen initiative process works</h2>
+        <p>
+          States that allow ballot initiatives typically use a straightforward framework. Specific rules vary,
+          but the structure is consistent.
+        </p>
+
+        <div class="two-col">
+          <div class="panel pad">
+            <h3 style="margin:0 0 8px;">A structured signature process</h3>
+            <p>
+              A proposal is drafted, reviewed for eligibility under defined rules, then supporters gather a required number
+              of valid signatures within a set timeframe.
+            </p>
+            <p>
+              Election authorities verify signatures, and if thresholds are met, the measure appears on the ballot for voters
+              to approve or reject.
+            </p>
+          </div>
+
+          <div class="panel pad">
+            <h3 style="margin:0 0 8px;">Safeguards matter</h3>
+            <p>
+              A good system includes clear eligibility rules, transparent counting, fraud prevention, and
+              straightforward public summaries so voters can make informed decisions.
+            </p>
+            <p class="tiny">
+              This site is a public overview, not legal advice. Any specific proposal should be reviewed with qualified counsel.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="help" class="section">
+      <div class="wrap">
+        <h2>Get involved</h2>
+        <p>
+          If you support expanding citizen access to the ballot in Maryland, you can help in practical ways.
+        </p>
+
+        <div class="two-col">
+          <div class="panel pad">
+            <h3 style="margin:0 0 8px;">Join updates</h3>
+            <p>Stay informed as local resolutions, outreach, and education efforts develop.</p>
+
+            <!-- Replace action URL with your email list provider endpoint -->
+            <form method="post" action="#" onsubmit="return false;" aria-label="Email signup form">
+              <label for="email" class="tiny">Email address</label><br />
+              <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
+                <input id="email" name="email" type="email" required
+                       placeholder="you@example.com"
+                       style="flex:1; min-width:240px; padding:12px 12px; border-radius:12px; border:1px solid rgba(255,255,255,0.14); background:rgba(0,0,0,0.25); color:var(--text);" />
+                <button class="btn primary" type="submit">Sign up</button>
+              </div>
+              <p class="tiny" style="margin-top:10px;">We do not sell your information. Unsubscribe anytime.</p>
+            </form>
+          </div>
+
+          <div class="panel pad">
+            <h3 style="margin:0 0 8px;">Volunteer</h3>
+            <p>
+              Help with outreach, talking points, local government engagement, event support, or administrative tasks.
+            </p>
+            <p class="tiny">Email: <a class="underline" href="mailto:info@letmdvote.com">info@letmdvote.com</a></p>
+            <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:10px;">
+              <a class="btn" href="mailto:info@letmdvote.com?subject=Volunteer%20interest%20-%20Let%20MD%20Vote">Email us</a>
+              <a class="btn" href="#faq">Questions first</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel pad" style="margin-top:14px;">
+          <h3 style="margin:0 0 8px;">Local governments</h3>
+          <p>
+            If you serve on a county or municipal council and want to support expanded citizen ballot access, we can provide
+            a non-binding resolution template and a short briefing packet for consideration.
+          </p>
+          <a class="btn" href="mailto:info@letmdvote.com?subject=Resolution%20template%20request%20-%20Let%20MD%20Vote">Request materials</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="wrap">
+        <h2>FAQ</h2>
+
+        <div class="panel pad">
+          <details>
+            <summary>Is this partisan?</summary>
+            <p>
+              No. This is a procedural effort focused on whether Maryland citizens should have a structured way to place eligible measures
+              on the ballot. People of many political views support citizen ballot access.
+            </p>
+          </details>
+
+          <details>
+            <summary>Does this replace the legislature?</summary>
+            <p>
+              No. A citizen initiative process is a supplemental tool. Representative government continues as normal.
+              Initiatives provide an additional lawful pathway for certain questions to reach voters.
+            </p>
+          </details>
+
+          <details>
+            <summary>What kinds of measures could be proposed?</summary>
+            <p>
+              That depends on the rules adopted by Maryland. Most states define eligibility and limits, especially for budgetary matters
+              and administrative details. The goal is a clear process with sensible safeguards.
+            </p>
+          </details>
+
+          <details>
+            <summary>What is the ask right now?</summary>
+            <p>
+              Support local and statewide discussion around adopting a citizen initiative framework for Maryland, and help build
+              community awareness through respectful outreach.
+            </p>
+          </details>
+
+          <details>
+            <summary>How can I help if I have limited time?</summary>
+            <p>
+              Join updates, share the site, and encourage local leaders to consider non-binding resolutions in support of ballot access.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="panel pad">
+          <h2 style="margin-top:0;">A simple principle</h2>
+          <p style="margin-bottom:0;">
+            Governments derive their just powers from the consent of the governed. Maryland deserves a clear, lawful, and orderly way
+            for citizens to bring eligible questions to the ballot.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <strong style="color:var(--text);">Let MD Vote</strong><br />
+          <span class="tiny">Consent of the Governed Maryland</span><br /><br />
+          <span class="tiny">Contact: <a class="underline" href="mailto:info@letmdvote.com">info@letmdvote.com</a></span>
+        </div>
+        <div style="text-align:right;">
+          <span class="tiny">© <span id="year"></span> Let MD Vote</span><br />
+          <span class="tiny">Built for mobile, tablet, and desktop.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
