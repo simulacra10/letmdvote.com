@@ -1,0 +1,17 @@
+<section id="how" class="section">
+  <div class="wrap">
+    <h2>{{ .Site.Params.home.howTitle | default "How a citizen initiative process works" }}</h2>
+    <p>{{ .Site.Params.home.howIntro }}</p>
+
+    <div class="two-col">
+      {{ range .Site.Params.home.howBlocks }}
+        <div class="panel pad">
+          <h3 style="margin:0 0 8px;">{{ .title }}</h3>
+          {{ range (split .text "\n\n") }}
+            <p>{{ . }}</p>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

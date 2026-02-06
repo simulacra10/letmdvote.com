@@ -1,0 +1,15 @@
+<section id="about" class="section">
+  <div class="wrap">
+    <h2>{{ .Site.Params.home.aboutTitle | default "About" }}</h2>
+    <div class="panel pad">
+      <p>{{ .Site.Params.home.aboutP1 }}</p>
+      <p>{{ .Site.Params.home.aboutP2 }}</p>
+
+      <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:10px;">
+        {{ range .Site.Params.home.aboutPills }}
+          <span class="pill">{{ . }}</span>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

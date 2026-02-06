@@ -1,0 +1,16 @@
+<footer role="contentinfo">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <strong style="color:var(--text);">{{ .Site.Params.siteName | default .Site.Title }}</strong><br />
+        <span class="tiny">{{ .Site.Params.siteTagline | default "" }}</span><br /><br />
+        {{ $email := .Site.Params.contactEmail | default "info@letmdvote.com" }}
+        <span class="tiny">Contact: <a class="underline" href="mailto:{{ $email }}">{{ $email }}</a></span>
+      </div>
+      <div style="text-align:right;">
+        <span class="tiny">© {{ now.Year }} {{ .Site.Params.siteName | default .Site.Title }}</span><br />
+        <span class="tiny">Built for mobile, tablet, and desktop.</span>
+      </div>
+    </div>
+  </div>
+</footer>

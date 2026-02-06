@@ -1,0 +1,49 @@
+<section id="help" class="section">
+  <div class="wrap">
+    <h2>{{ .Site.Params.home.involvedTitle | default "Get involved" }}</h2>
+    <p>{{ .Site.Params.home.involvedIntro }}</p>
+
+    <div class="two-col">
+      <div class="panel pad">
+        <h3 style="margin:0 0 8px;">{{ .Site.Params.home.joinTitle | default "Join updates" }}</h3>
+        <p>{{ .Site.Params.home.joinText }}</p>
+
+        {{ $action := .Site.Params.home.joinFormAction }}
+        {{ if $action }}
+          <form method="post" action="{{ $action }}" aria-label="Email signup form">
+            <label for="email" class="tiny">Email address</label><br />
+            <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
+              <input id="email" name="email" type="email" required
+                     placeholder="you@example.com"
+                     style="flex:1; min-width:240px; padding:12px 12px; border-radius:12px; border:1px solid rgba(255,255,255,0.14); background:rgba(0,0,0,0.25); color:var(--text);" />
+              <button class="btn primary" type="submit">Sign up</button>
+            </div>
+            <p class="tiny" style="margin-top:10px;">{{ .Site.Params.home.joinPrivacyNote }}</p>
+          </form>
+        {{ else }}
+          <p class="tiny" style="margin-top:10px;">Signup form not configured yet.</p>
+          <p class="tiny" style="margin-top:10px;">{{ .Site.Params.home.joinPrivacyNote }}</p>
+        {{ end }}
+      </div>
+
+      <div class="panel pad">
+        <h3 style="margin:0 0 8px;">{{ .Site.Params.home.volunteerTitle | default "Volunteer" }}</h3>
+        <p>{{ .Site.Params.home.volunteerText }}</p>
+
+        {{ $email := .Site.Params.contactEmail | default "info@letmdvote.com" }}
+        <p class="tiny">Email: <a class="underline" href="mailto:{{ $email }}">{{ $email }}</a></p>
+
+        <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:10px;">
+          <a class="btn" href="{{ .Site.Params.home.volunteerPrimaryHref }}">{{ .Site.Params.home.volunteerPrimaryLabel }}</a>
+          <a class="btn" href="{{ .Site.Params.home.volunteerSecondaryHref }}">{{ .Site.Params.home.volunteerSecondaryLabel }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel pad" style="margin-top:14px;">
+      <h3 style="margin:0 0 8px;">{{ .Site.Params.home.govTitle | default "Local governments" }}</h3>
+      <p>{{ .Site.Params.home.govText }}</p>
+      <a class="btn" href="{{ .Site.Params.home.govCtaHref }}">{{ .Site.Params.home.govCtaLabel }}</a>
+    </div>
+  </div>
+</section>

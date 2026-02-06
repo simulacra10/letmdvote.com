@@ -1,0 +1,79 @@
+<header class="topbar" role="banner">
+  <div class="wrap">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="{{ .Site.Params.siteName | default .Site.Title }} home">
+        <div class="mark" aria-hidden="true"></div>
+        <div class="brand-title">
+          <strong>{{ .Site.Params.siteName | default .Site.Title }}</strong>
+          <span>{{ .Site.Params.siteTagline | default "" }}</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#why">Our case</a>
+        <a href="#how">How it works</a>
+        <a href="#help">Get involved</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="cta-row">
+        <a class="btn" href="#help">Join updates</a>
+        <a class="btn primary" href="#help">Volunteer</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="panel pad hero-media">
+          <div class="kicker">
+            <span class="dot" aria-hidden="true"></span>
+            <span>{{ .Site.Params.home.eyebrow | default "Building a lawful path for Maryland citizens to place measures on the ballot" }}</span>
+          </div>
+
+          {{ $src := "/images/hero.jpg" }}
+          {{ $alt := "Hero image" }}
+
+          {{ with .Site.Params.home.heroImage }}
+            {{ with .src }}{{ $src = . }}{{ end }}
+            {{ with .alt }}{{ $alt = . }}{{ end }}
+          {{ end }}
+
+          <img src="{{ $src }}" alt="{{ $alt }}" loading="eager" />
+
+          <div class="caption">
+            <div class="hero-actions">
+              {{ range .Site.Params.home.heroButtons }}
+                {{ $cls := "btn" }}
+                {{ if eq .style "primary" }}{{ $cls = "btn primary" }}{{ end }}
+                <a class="{{ $cls }}" href="{{ .href }}">{{ .label }}</a>
+              {{ end }}
+            </div>
+
+            <p class="tiny" style="margin-top:12px;">
+              {{ if .Site.Params.home.heroImage.overlayText }}
+                {{ .Site.Params.home.heroImage.overlayText }}
+              {{ else }}
+                {{ delimit (.Site.Params.home.heroBadges | default (slice "Nonpartisan." "Pro-process." "Pro-voter.")) " " }}
+              {{ end }}
+            </p>
+          </div>
+        </div>
+
+        <aside class="panel pad" aria-label="Quick highlights">
+          <div class="stats">
+            {{ range .Site.Params.home.highlights }}
+              <div class="stat">
+                <strong>{{ .title }}</strong>
+                <span>{{ .text }}</span>
+              </div>
+            {{ end }}
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>

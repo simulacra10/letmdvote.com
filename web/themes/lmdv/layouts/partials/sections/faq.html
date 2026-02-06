@@ -1,0 +1,14 @@
+<section id="faq" class="section">
+  <div class="wrap">
+    <h2>{{ .Site.Params.home.faqTitle | default "FAQ" }}</h2>
+
+    <div class="panel pad">
+      {{ range .Site.Params.home.faq }}
+        <details>
+          <summary>{{ .q }}</summary>
+          <p>{{ .a }}</p>
+        </details>
+      {{ end }}
+    </div>
+  </div>
+</section>
