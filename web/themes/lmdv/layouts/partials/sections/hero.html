@@ -28,7 +28,7 @@
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <div class="hero-grid">
+      <div class="hero-grid" style="grid-template-columns: 1fr;">
         <div class="panel pad hero-media">
           <div class="kicker">
             <span class="dot" aria-hidden="true"></span>
@@ -63,17 +63,6 @@
             </p>
           </div>
         </div>
-
-        <aside class="panel pad" aria-label="Quick highlights">
-          <div class="stats">
-            {{ range .Site.Params.home.highlights }}
-              <div class="stat">
-                <strong>{{ .title }}</strong>
-                <span>{{ .text }}</span>
-              </div>
-            {{ end }}
-          </div>
-        </aside>
       </div>
     </div>
   </section>

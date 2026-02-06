@@ -275,3 +275,11 @@ footer{
   html{ scroll-behavior:auto; }
   .btn{ transition:none; }
 }
+
+/* Make highlights responsive when fewer than 3 items exist.
+   1 item: full width
+   2 items: two columns
+   3+ items: auto-fit up to available width */
+.cards.cards-fluid{
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}

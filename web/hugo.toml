@@ -14,18 +14,12 @@ theme = "lmdv"
 
     # Hero
     [params.home.heroImage]
-    src = "/images/hero.jpg"
+    src = "/images/hero.png"
     alt = "Maryland State House dome at sunset"
     overlay = true
-     overlayText = "Let Marylanders propose and vote on questions that matter."
-
-    #eyebrow = "Building a lawful path for Maryland citizens to place measures on the ballot"
-    #headline = "Let Marylanders propose and vote on questions that matter."
-    #lead = "Let MD Vote is a Maryland civic initiative focused on expanding citizen access to the ballot through a structured, signature-based process that complements representative government."
-    #heroBadges = ["Nonpartisan.", "Pro-process.", "Pro-voter."]
+    overlayText = "Let Marylanders propose and vote on questions that matter."
 
     
-
     [[params.home.heroButtons]]
       label = "Get involved"
       href = "#get-involved"
@@ -33,7 +27,7 @@ theme = "lmdv"
 
     [[params.home.heroButtons]]
       label = "See the process"
-      href = "#how-it-works"
+      href = "#process"
       style = "secondary"
 
     [[params.home.heroButtons]]

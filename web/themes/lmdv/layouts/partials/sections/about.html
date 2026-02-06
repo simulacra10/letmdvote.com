@@ -1,12 +1,17 @@
 <section id="about" class="section">
   <div class="wrap">
     <h2>{{ .Site.Params.home.aboutTitle | default "About" }}</h2>
-    <div class="panel pad">
-      <p>{{ .Site.Params.home.aboutP1 }}</p>
-      <p>{{ .Site.Params.home.aboutP2 }}</p>
 
+    <div class="panel pad">
+      {{ $p1 := .Site.Params.home.aboutP1 | default "Maryland’s laws and constitution set many important rules for public life, but citizens have limited ability to place statutory or constitutional questions directly before voters through a citizen-initiated ballot process." }}
+      {{ $p2 := .Site.Params.home.aboutP2 | default "Let MD Vote advocates for a statewide mechanism that allows citizens to propose eligible measures for voter consideration, through a clear, orderly procedure with strong safeguards and transparent administration." }}
+
+      <p>{{ $p1 }}</p>
+      <p>{{ $p2 }}</p>
+
+      {{ $pills := .Site.Params.home.aboutPills | default (slice "Civic participation" "Accountability" "Transparency" "Peaceful, lawful change") }}
       <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:10px;">
-        {{ range .Site.Params.home.aboutPills }}
+        {{ range $pills }}
           <span class="pill">{{ . }}</span>
         {{ end }}
       </div>
